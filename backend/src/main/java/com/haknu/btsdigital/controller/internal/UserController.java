@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +28,7 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(value = "/api/user/profile/id", method = RequestMethod.POST)
-    public User getUserProfile(@RequestBody String object) throws UnsupportedEncodingException, JsonProcessingException {
+    public User getUserProfile(@RequestBody String object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         User user = mapper.readValue(object,User.class);
         return userService.getUserById(user.getId());
@@ -40,13 +41,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/api/user/authUser", method = RequestMethod.POST)
-    public User authUser(@RequestBody String object) throws JsonProcessingException{
+    public ResponseEntity<?> authUser(@RequestBody String object) throws JsonProcessingException{
         ObjectMapper mapper = new ObjectMapper();
         User user = mapper.readValue(object, User.class);
         if (userService.authUser(user).equals(HttpStatus.ACCEPTED)) {
-            return user;
+            return ResponseEntity.ok(user);
         }else {
-            return HttpStatus.NOT_FOUND;
+            return ResponseEntity.notFound().build();
         }
     }
 }
