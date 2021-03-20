@@ -2,7 +2,6 @@ package com.haknu.btsdigital.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +14,7 @@ import java.util.Collections;
 @Entity
 @Data
 @NoArgsConstructor
+
 @Table(name = "user")
 public class User implements UserDetails, Serializable, IAuthenticable {
 
@@ -24,12 +24,16 @@ public class User implements UserDetails, Serializable, IAuthenticable {
     private Long id;
 
     @ToString.Include
-    @Column(unique = true, nullable = false, length = 100)
-    private String username;
+    @Column(unique = true, nullable = false)
+    private String idAito;
+
     private String name;
 
+    private String surname;
+
+    private String avatarUrl;
+
     @Column(unique = true, nullable = false, length = 20)
-    private String phone;
     private boolean active = true;
 
     @Enumerated(EnumType.STRING)

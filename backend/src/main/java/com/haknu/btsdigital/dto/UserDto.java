@@ -9,22 +9,21 @@ import lombok.ToString;
 public class UserDto {
 
     private Long id;
-    private String email;
+    private String idAito;
     private String name;
-    private String address;
-    private String contract;
-    private String phone;
+    private String surname;
+    private String avatarUrl;
     private boolean active;
-    private boolean api;
     private String role;
     private String password;
 
     public static UserDto info(User user) {
         UserDto dto = new UserDto();
         dto.setId(user.getId());
-        dto.setEmail(user.getUsername());
+        dto.setIdAito(user.getIdAito());
         dto.setName(user.getName());
-        dto.setPhone(user.getPhone());
+        dto.setSurname(user.getSurname());
+        dto.setAvatarUrl(user.getAvatarUrl());
         dto.setRole(user.getRole().name());
         return dto;
     }
@@ -32,9 +31,10 @@ public class UserDto {
     public static UserDto of(User user) {
         UserDto dto = new UserDto();
         dto.setId(user.getId());
-        dto.setEmail(user.getUsername());
+        dto.setIdAito(user.getIdAito());
         dto.setName(user.getName());
-        dto.setPhone(user.getPhone());
+        dto.setSurname(user.getSurname());
+        dto.setAvatarUrl(user.getAvatarUrl());
         dto.setActive(user.isActive());
         dto.setRole(user.getRole().name());
         return dto;
