@@ -2,30 +2,34 @@
 
 export async function getEventsByFilter(filterName) {
     // STUB
-    return [{
-        id: 1,
-        name: 'stubEventName1',
-        description: 'lorem ipsum',
-        ownerId: -1,
-        eventType: filterName
-    }, {
-        id: 2,
-        name: 'stubEventName2',
-        description: 'lorem ipsum dolor',
-        ownerId: -2,
-        eventType: filterName
-    }]
+    return new Promise(resolve => {
+        setTimeout(() => resolve([{
+            id: 1,
+            name: 'stubEventName1',
+            description: 'lorem ipsum',
+            ownerId: -1,
+            eventType: filterName
+        }, {
+            id: 2,
+            name: 'stubEventName2',
+            description: 'lorem ipsum dolor',
+            ownerId: -2,
+            eventType: filterName
+        }]), 100)
+    })
 }
 
 export async function getEvent(id) {
     // STUB
-    return {
-        id,
-        name: 'stubEventName',
-        description: 'lorem ipsum',
-        ownerId: -1,
-        eventType: 'IT'
-    }
+    return new Promise(resolve => {
+        setTimeout(() => resolve({
+            id,
+            name: 'stubEventName',
+            description: 'lorem ipsum',
+            ownerId: -1,
+            eventType: 'IT'
+        }), 100)
+    })
 }
 
 export async function createNewEvent({name, description, ownerId, rewardImageArray}) {
@@ -39,35 +43,41 @@ export async function createNewEvent({name, description, ownerId, rewardImageArr
     // }
 
     // STUB
-    return {
-        id: 1,
-        name: name,
-        description: description,
-        ownerId: ownerId,
-        eventType: 'IT'
-    }
+    return new Promise(resolve => {
+        setTimeout(() => resolve({
+            id: 1,
+            name: name,
+            description: description,
+            ownerId: ownerId,
+            eventType: 'IT'
+        }), 100)
+    })
 }
 
 export async function updateEventStatus({eventId, completedStatus}) {
     // STUB
     console.log(completedStatus)
-    return {
-        id: eventId,
-        name: 'stubEventName',
-        description: 'lorem ipsum',
-        ownerId: -1,
-        eventType: 'IT'
-    }
+    return new Promise(resolve => {
+        setTimeout(() => resolve({
+            id: eventId,
+            name: 'stubEventName',
+            description: 'lorem ipsum',
+            ownerId: -1,
+            eventType: 'IT'
+        }), 100)
+    })
 }
 
 export async function joinEvent({eventId, userId}) {
     // STUB
     console.log(userId)
-    return {
-        id: eventId,
-        name: 'stubEventName',
-        description: 'lorem ipsum',
-        ownerId: -1,
-        eventType: 'IT'
-    }
+    return new Promise(resolve => {
+        setTimeout(() => resolve({
+            id: eventId,
+            name: 'stubEventName',
+            description: 'lorem ipsum',
+            ownerId: -1,
+            eventType: 'IT'
+        }), 100)
+    })
 }
