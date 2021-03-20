@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @ToString.Include
     @Id
@@ -30,8 +30,7 @@ public class User {
     @JoinColumn( name = "organization_id", unique = true)
     private Organization organization;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable
+    @ManyToMany(mappedBy = "users")
     private List<Event> events;
 
     private String avatarURL;

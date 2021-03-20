@@ -28,10 +28,11 @@ public class Event {
     private Long orgID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn("organization_id")
-    private Organization organization;
+    @JoinColumn(name = "organization_id")
+    private Organization organization_id;
 
 
-    @ManyToMany(mappedBy = "event")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
     private Set<User> users;
 }

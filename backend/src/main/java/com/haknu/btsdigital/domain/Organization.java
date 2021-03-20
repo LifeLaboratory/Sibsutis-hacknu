@@ -23,7 +23,7 @@ public class Organization {
     private String ownerID;
     private String avatarURL;
 
-    @OneToMany(mappedBy = "organization")
+    @OneToMany(mappedBy = "organization_id")
     private List<Event> events;
 }
 
