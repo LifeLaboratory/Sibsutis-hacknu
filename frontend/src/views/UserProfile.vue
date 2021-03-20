@@ -3,8 +3,11 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Dashboard'
+name: "UserProfile"
 }
 </script>
+
+<style scoped>
+
+</style>

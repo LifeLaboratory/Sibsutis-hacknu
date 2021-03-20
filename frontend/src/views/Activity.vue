@@ -3,8 +3,11 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Dashboard'
+name: "Activity"
 }
 </script>
+
+<style scoped>
+
+</style>

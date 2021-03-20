@@ -1,26 +1,53 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Dashboard from '../views/Dashboard.vue'
+import UserProfile from "../views/UserProfile";
+import OrganizationProfile from "../views/OrganizationProfile";
+import Activity from "../views/Activity";
+import Authorization from "../views/Authorization";
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Dashboard',
+    component: Dashboard
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import('../views/About.vue')
-  // }
+  {
+    path: 'user',
+    name: 'UserProfile',
+    component: UserProfile
+  },
+  {
+    path: '/user/:id',
+    name: 'UserProfile',
+    component: UserProfile
+  },
+  {
+    path: '/organization',
+    name: 'OrganizationProfile',
+    component: OrganizationProfile
+  },
+  {
+    path: '/organization/:id',
+    name: 'OrganizationProfile',
+    component: OrganizationProfile
+  },
+  {
+    path: '/activity',
+    name: 'Activity',
+    component: Activity
+  },
+  {
+    path: '/auth',
+    name: 'Authorization',
+    component: Authorization
+  }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
