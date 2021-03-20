@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Dashboard from '../views/Dashboard.vue'
 import UserProfile from "../views/UserProfile";
 import OrganizationProfile from "../views/OrganizationProfile";
+import Event from "../views/Event";
 import Activity from "../views/Activity";
 import Authorization from "../views/Authorization";
 
@@ -20,7 +21,7 @@ const routes = [
     component: UserProfile
   },
   {
-    path: '/user/:id',
+    path: '/user/:userId',
     name: 'UserProfile',
     component: UserProfile
   },
@@ -30,9 +31,14 @@ const routes = [
     component: OrganizationProfile
   },
   {
-    path: '/organization/:id',
+    path: '/organization/:organizationId',
     name: 'OrganizationProfile',
     component: OrganizationProfile
+  },
+  {
+    path: '/event/:eventId',
+    name: 'Event',
+    component: Event
   },
   {
     path: '/activity',
