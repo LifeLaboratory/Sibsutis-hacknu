@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "user")
-public class User {
+@Table(name = "organization")
+public class Organization {
     @ToString.Include
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,12 +18,9 @@ public class User {
 
     @ToString.Include
     @Column(unique = true,nullable = false,length = 100)
-    private String username;
-
-    @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private String surname;
 
+    private String ownerID;
     private String avatarURL;
+}
 }
