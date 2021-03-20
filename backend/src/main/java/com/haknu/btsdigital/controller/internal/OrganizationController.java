@@ -37,7 +37,7 @@ public class OrganizationController {
         return organizationService.addNewOrganization(organization);
     }
 
-    @RequestMapping(value = "/api/user/authOrganization", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/organization/authOrganization", method = RequestMethod.POST)
     public ResponseEntity<?> authUOrganization(@RequestBody String object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Organization organization = mapper.readValue(object, Organization.class);
