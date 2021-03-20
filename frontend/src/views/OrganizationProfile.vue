@@ -10,20 +10,31 @@
 <script>
 import ProfileBaseInfo from "../components/profile/ProfileBaseInfo";
 import {getOrganizationProfile} from "../api/organization";
+import {mapGetters, mapMutations} from 'vuex';
 
 export default {
   name: "OrganizationProfile",
   components: {
     ProfileBaseInfo
   },
-  data() {
-    return {
-      organizationProfile: null
-    }
+  computed: {
+    ...mapGetters({
+      organizationProfile: 'organizationProfile'
+    })
+  },
+  methods: {
+    ...mapMutations({
+      updateOrganizationProfile: 'updateProfile'
+    })
   },
   async created() {
-    this.organizationProfile = await getOrganizationProfile(this.$route.params.id, null)
-    console.log(this.$route.params.id)
+    const organizationId = this.$route.params.organizationId  || this.userProfile.organizationId
+    const profile = await getOrganizationProfile(organizationId, null)
+    this.updateOrganizationProfile({
+      profile,
+      isOrganization: true
+    })
+    console.log(this.$route.params.organizationId)
     console.log(this.organizationProfile)
   }
 }

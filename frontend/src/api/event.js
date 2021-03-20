@@ -19,11 +19,11 @@ export async function getEventsByFilter(filterName) {
     })
 }
 
-export async function getEvent(id) {
+export async function getEvent(eventId) {
     // STUB
     return new Promise(resolve => {
         setTimeout(() => resolve({
-            id,
+            id: eventId,
             name: 'stubEventName',
             description: 'lorem ipsum',
             ownerId: -1,
