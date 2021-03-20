@@ -25,5 +25,7 @@ public class User {
     @Column(nullable = false)
     private String surname;
 
+    private Long organization;
+
     private String avatarURL;
 }

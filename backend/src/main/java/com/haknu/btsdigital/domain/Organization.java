@@ -19,8 +19,7 @@ public class Organization {
     @ToString.Include
     @Column(unique = true,nullable = false,length = 100)
     private String name;
-
     private String ownerID;
     private String avatarURL;
 }
-}
+

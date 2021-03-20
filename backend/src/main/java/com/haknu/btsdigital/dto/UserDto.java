@@ -17,26 +17,26 @@ public class UserDto {
     private String role;
     private String password;
 
-    public static UserDto info(User user) {
-        UserDto dto = new UserDto();
-        dto.setId(user.getId());
-        dto.setIdAito(user.getIdAito());
-        dto.setName(user.getName());
-        dto.setSurname(user.getSurname());
-        dto.setAvatarUrl(user.getAvatarUrl());
-        dto.setRole(user.getRole().name());
-        return dto;
-    }
-
-    public static UserDto of(User user) {
-        UserDto dto = new UserDto();
-        dto.setId(user.getId());
-        dto.setIdAito(user.getIdAito());
-        dto.setName(user.getName());
-        dto.setSurname(user.getSurname());
-        dto.setAvatarUrl(user.getAvatarUrl());
-        dto.setActive(user.isActive());
-        dto.setRole(user.getRole().name());
-        return dto;
-    }
+//    public static UserDto info(User user) {
+//        UserDto dto = new UserDto();
+//        dto.setId(user.getId());
+//        dto.setIdAito(user.getIdAito());
+//        dto.setName(user.getName());
+//        dto.setSurname(user.getSurname());
+//        dto.setAvatarUrl(user.getAvatarUrl());
+//        dto.setRole(user.getRole().name());
+//        return dto;
+//    }
+//
+//    public static UserDto of(User user) {
+//        UserDto dto = new UserDto();
+//        dto.setId(user.getId());
+//        dto.setIdAito(user.getIdAito());
+//        dto.setName(user.getName());
+//        dto.setSurname(user.getSurname());
+//        dto.setAvatarUrl(user.getAvatarUrl());
+//        dto.setActive(user.isActive());
+//        dto.setRole(user.getRole().name());
+//        return dto;
+//    }
 }
