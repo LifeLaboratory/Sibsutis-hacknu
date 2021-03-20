@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +22,8 @@ public class Organization {
     private String name;
     private String ownerID;
     private String avatarURL;
+
+    @OneToMany(mappedBy = "organization")
+    private List<Event> events;
 }
 

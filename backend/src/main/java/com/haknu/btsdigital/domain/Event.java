@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -25,5 +27,11 @@ public class Event {
     @Column(nullable = false)
     private Long orgID;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn("organization_id")
+    private Organization organization;
 
+
+    @ManyToMany(mappedBy = "event")
+    private Set<User> users;
 }

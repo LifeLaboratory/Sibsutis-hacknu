@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -25,7 +26,13 @@ public class User {
     @Column(nullable = false)
     private String surname;
 
-    private Long organization;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn( name = "organization_id", unique = true)
+    private Organization organization;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable
+    private List<Event> events;
 
     private String avatarURL;
 }
